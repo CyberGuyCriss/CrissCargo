@@ -1,0 +1,95 @@
+﻿@model CrissCargoApp.ViewModel.OrderPaymentViewModel
+@{
+    ViewData["Title"] = "PaymentConfirmation";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="main" id="main">
+     <div class="pagetitle">
+        <h1>Upload Payment</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Payment</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Please Upload your payment information</h3>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="PaymentConfirmations" method="post" enctype="multipart/form-data">
+                                <div class="container">
+                                    <div class="row">
+                                        @*<div class="form-group m-3">
+                                            <label asp-for="CompanyAccountPaidTo">Company details</label>
+                                            <input class="form-control" asp-for="CompanyAccountPaidTo" type="text" placeholder="Readonly Accesws bank: CrissCargo Limited: 0060845793" readonly>
+                                        </div>*@
+                                        <div class="form-group m-3">
+                                            <label asp-for="CustomersBank">Sender's bank Name</label>
+                                            <input type="text" asp-for="CustomersBank" class="form-control" placeholder="type the name of your bank" />
+                                        </div>
+                                        <div class="form-group m-3">
+                                            <label asp-for="customersName">Sender's Name</label>
+                                            <input asp-for="customersName" type="text" class="form-control" placeholder="Enter sender's Name" />
+                                        </div>
+                                        <div class="form-group m-3">
+                                            <label asp-for="CustomersAccountNumber">Sender's Account Number</label>
+                                            <input asp-for="CustomersAccountNumber" type="text" class="form-control" placeholder="enter sender's Name" />
+                                        </div>
+                                        <div class="form-group m-3">
+                                            <label asp-for="AmountPaid">Total Amount</label>
+                                            <input asp-for="AmountPaid" type="number" class="form-control" placeholder="enter Amount Paid" />
+                                        </div>
+                                        <div class="form-group m-3">
+                                            <label asp-for="PaymentMethod" class="form-label">Mode of payment</label>
+                                            <select class="form-control form-select" asp-for="PaymentMethod">
+                                                <option>Payment method</option>
+                                                <option>Bank Transfer</option>
+                                                <option>Bank Deposit</option>
+                                                <option>POS Payment</option>
+                                                <option>USSD Payment</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="card bg-light m-3 p-3">
+                                            <label class="form-label">Company Account Paid to</label>
+                                            <div class="form-check">
+                                                <input asp-for="CompanyAccountPaidTo" class="form-check-input" type="radio" value="option1">
+                                                <label asp-for="CompanyAccountPaidTo" class="form-check-label">
+                                                    Access bank<br /> CrissCargo Limited<br /> 0060845793
+                                                </label>
+                                            </div>
+                                            <hr />
+                                            <div class="form-check">
+                                                <input asp-for="CompanyAccountPaidTo" class="form-check-input" type="radio" value="option2">
+                                                <label asp-for="CompanyAccountPaidTo" class="form-check-label">
+                                                    Alipay <br />CrissCargo Limited<br /> 234-9050755160
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col form-group m-3">
+                                            <label asp-for="PaymentImageUrl">Upload Pyament Receipt:</label><br />
+                                            <input asp-for="PaymentImageUrl" type="file"/>
+                                        </div>
+                                        <hr />
+                                        <div>
+                                            <button type="Submit" class="btn btn-primary form-control">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>        

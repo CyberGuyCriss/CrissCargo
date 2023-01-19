@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "Faq";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<main class="main" id="main">
+    <div class="pagetitle">
+        <h1>Frequently Asked Questions</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Faq</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="row">
+            <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Find Questions</h5>
+
+                        <!-- Default Accordion -->
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <div class="circle-icon"> <i class="bi bi-question-lg"></i></div>
+                                        How can I place an Order?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>
+                                            To add items for procuremet and shipping please follow these simple steps
+                                            <ul>
+                                                <li>Click <a href="https://localhost:44350/Procurement/CreateProcurement">HERE</a> to be redirected to your order page.</li>
+                                                <li>Go to your chinese market place or <a href="https://www.1688.com" target="_blank">HERE</a> to copy the product links you want to buy.</li>
+                                                <li>Fill the products name, link, size, colour and qauntity.</li>
+                                                <li>Click on the Add button to Add more products till you add the total number of products you want to buy.</li>
+                                                <li>Click on Submit my order button below to submit your order.</li>
+                                                <li>Wait patiently as the Admin works on your order to prepare your quotation within 2 hours.</li>
+                                                <li>As soon as this is done and you receive your invoice for payment. proceed with payment to enable the processing of your orders</li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <div class="circle-icon"> <i class="bi bi-question-lg"></i></div>
+                                        How much is your Dollar and RMB Exchange rates?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p> Kindly note that exchange rates fluctuates continuesly and therefore do not have a fixed rate. You should endavour to make enquiries from our staff or company representative on the current rates before pklacing your orders.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <div class="circle-icon"> <i class="bi bi-question-lg"></i></div>
+                                        How Many days do I have to wait before my goods arrives Nigeria and raedy for pick up?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>
+                                            We have two type of goods and shipping duration is dependent on your type of goods;
+                                            <ol>
+                                                <li>Normal goods</li>
+                                                This include all items without battery or liquid inside. they include items such as; clothss, shoes, etc
+                                                <li>Special goods</li>
+                                                These are goods that come with battery, liquid or powder such as watches, perfume, make-up, power-banks, etc
+                                            </ol>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                                        <div class="circle-icon"> <i class="bi bi-question-lg"></i></div>
+                                        What shipping methods do your comapny use?
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>
+                                            There currently two shipping methods in use;
+                                            <ol>
+                                                <li>Air Cargo </li>
+                                                This shipping method involves the use of air frieght and goods arrive in 5-7 days. The shipping fee is maeasure and calcultaed in kg and the total shipping fee is determined by the total weight (in kg) of your goods
+                                                <li>Sea Cargo</li>
+                                                This shipping method involves the shipping of goods through sea as the name suggests. It takes 60-90 days for your goods to arrive destination sea-port. This method is calculated in CBM.
+                                            </ol>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseTwo">
+                                        <div class="circle-icon"> <i class="bi bi-question-lg"></i></div>
+                                        How long can I leave my goods in your warehouse before it enters dumorage after arrival?
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>
+                                            You are expected to pick up your goods as soon as they arrive Lagos. If for any reasons you are not able to do so, you are only allowed to leave them in the warehouse for two weeks after arrival. From this time, you will b   e charge 500 naira dumorage fee for each extra day and if after two months you are still not able to pick up, then the company reserve the right to discard those goods or sell them in auction to recover the money used in shipping them.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- End Default Accordion Example -->
+
+                    </div>
+                    <div class="card-footer m-3">
+                        <p>Have more Questions? Please Click <a href="https://localhost:44350/Customers/ContactUs">HERE</a> to Contact Admin</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>

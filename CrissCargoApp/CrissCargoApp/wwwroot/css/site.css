@@ -1,0 +1,87 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+.circle-icon {
+    height:50px;
+    width:50px;
+    border-radius:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#2b4eff;
+    border:5px solid #b2bfff;
+    color:#fff;
+    margin-left:-10px;
+    margin-right:10px;
+    transform:scale(1.2);
+}
+
+/*copy stop clipboard*/
+.copy1{
+    position:relative;
+    padding:;
+    background:#fff;
+    
+    border-radius:10px;
+    display:flex;
+}
+.copy1 #text1 {
+        padding: 8px;
+        font-size: 15px;
+        color: #555;
+        border: none;
+        outline: none;
+        
+        
+    }
+.copy1 button {
+        padding: 8px;
+        margin-left: -50px;
+        background: #e3e3e3;
+        color: #555;
+        font-size:15px;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+.copy1 button:active {
+        background: #0000ff;
+    }
+.copy1 button:before{
+    content:"copied!";
+    position:absolute;
+    top:-45px;
+    right:0px;
+    background:#5c01dc;
+    padding:8px 10px;
+    border-radius:10px;
+    font-size:15px;
+    display:none;
+}
+.copy1 button:after{
+    content:"";
+    position:absolute;
+    top:-20px;
+    right:25px;
+    width:10px;
+    height:10px;
+    background:#5c81dc;
+    transform:rotate(45deg);
+    display:none;
+}
+.copy1.active button:before,
+.copy1.active button:after{
+    display:block;
+}

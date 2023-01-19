@@ -1,0 +1,108 @@
+﻿@model IEnumerable<CrissCargoApp.Models.Procurement>
+@{
+    ViewData["Title"] = "AllOders";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+
+    body {
+        counter-reset: Serial; /* / Set the Serial counter to 0 /*/
+    }
+
+    tr td:first-child:before {
+        counter-increment: Serial; /* / Increment the Serial counter /*/
+        content: counter(Serial); /*  / Display the counter /*/
+    }
+</style>
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1> All Orders</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Orders</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard m-auto">
+
+@if (Model != null && Model.Count() > 0)
+{
+            <table class="table table-hover table-bordered table-responsive text-center bg-white table-responsive-sm">
+                <thead>
+                    <tr>
+                        <th class="width_table">S/N</th>
+                        <th class="width_table">Date Ordered</th>
+                        <th class="width_table">Order No</th>
+                        <th class="width_table">Customer</th>
+                        <th class="width_table">Procurement List</th>
+                        <th>Order Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var obj in Model)
+                    {
+                        <tr>
+                            <td></td>
+                            <td>@obj.DateSubmitted</td>
+                            <td>@obj.OrderNo</td>
+                            <td>@obj.Customers.Name</td>
+                     
+                            <td class="d-flex mx-2">
+                                         <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary mx-4 form-control" data-bs-toggle="modal" data-bs-target="#viewProcurementModal" onclick="GetOrderByOrderNumber('@obj.OrderNo')">
+                                    <i class="bi bi-eye-fill"></i>View Procuremnt List
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h1 class="text-center"> No Records Found</h1>
+        }
+
+    </section>
+
+    @*Order Modeal*@
+    <div class="modal fade" id="viewProcurementModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Customer Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="table table-hover table-bordered table-responsive text-center bg-white table-responsive-sm">
+                       <thead>
+                           <tr>
+                               <th scope="col">Product Name</th>
+                               <th scope="col">Product Link</th>
+                               <th scope="col">Qnty</th>
+                               <th scope="col">Colour</th>
+                               <th scope="col">Size</th>
+                               <th scope="col">More Details</th>
+                               <th scope="col">Action</th>
+                           </tr>
+                       </thead>
+                       <tbody id="orderBynoResult">
+                           
+                       </tbody>
+                   </table>
+
+                </div>
+                    <div class="modal-footer" id="prepareOrderBtn">
+                    </div>
+                </div>
+        </div>
+    </div><!-- End Small Modal-->
+</main>
+
+
+
+

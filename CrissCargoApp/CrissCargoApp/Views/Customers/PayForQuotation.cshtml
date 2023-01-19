@@ -1,0 +1,86 @@
+﻿@model CrissCargoApp.Models.OrderPayment
+@{
+    ViewData["Title"] = "PayForQuotation";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+@Html.HiddenFor(u => u.OrderNo)
+
+
+<div class="main" id="main">
+    <div class="pagetitle">
+        <h1>Payment</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Quotation</li>
+            </ol>
+        </nav>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <p>Kindly proceeed with your payment into the account number bellow and click on the CONTINUE button after payment to proceed.</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4>Payment for Order Procuremt</h4>
+                                <h5>Bank Transfer</h5>
+                                <hr />
+                            </div>
+                            <div class="container">
+                                <p>Bank name: Access Bank</p>
+                                <p>Account name: CrissCargo Limited</p>
+                                <div class="copy1">
+                                    <p>Account Number: <input id="text1" readonly="readonly" type="text" value="0060845793" /></p>
+                                    <button onclick="copyBtn()">Copy</button>
+                                </div>
+                            </div>
+                            <hr />
+                            <a asp-asp-controller="Customers" asp-action="PaymentConfirmation" type="button" class="btn btn-primary w-100 btn-block">Continue</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <p>Kindly copy the email in the account number and proceed to your alipay account to complete the transfer and click CONTINUE to proceed</p>                       
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4>Payment for Order Procuremt</h4>
+                                <h5>RMB Transfer</h5>
+                                <hr />
+                            </div>
+                            <div class="container">
+                                <p>Payment Method: Alipay Balance</p>
+                                <p>Account name: CrissCargo Limited</p>
+                                <div class="copy1">
+                                    <p>Account Number: <input id="text1" readonly="readonly" type="text" value="234-9050755160" /></p>
+                               
+                                    <button onclick="copyBtn()">Copy</button>
+                                </div>
+                            </div>
+                            <hr />
+                            <a asp-controller="Customers" asp-action="PaymentConfirmation" type="button" class="btn btn-primary w-100 btn-block">Continue</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+</div>
+
+<script type="text/javascript">
+    function copyBtn() {
+        debugger;
+        var copyText = document.getElementById("text1");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+        alert("copied" + copyText.value);
+    };
+</script>

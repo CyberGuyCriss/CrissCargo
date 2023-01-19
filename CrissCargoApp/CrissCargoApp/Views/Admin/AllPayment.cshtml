@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CrissCargoApp.Models.OrderPayment>
+
+@{
+    ViewData["Title"] = "AllPayment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+
+    body {
+        counter-reset: Serial; /* / Set the Serial counter to 0 /*/
+    }
+
+    tr td:first-child:before {
+        counter-increment: Serial; /* / Increment the Serial counter /*/
+        content: counter(Serial); /*  / Display the counter /*/
+    }
+</style>
+<main class="main" id="main">
+    <div class="pagetitle">
+        <h1>All Order Payment</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Payments</li>
+            </ol>
+        </nav>
+    </div>
+
+<section>
+        @if (Model != null && Model.Count() > 0)
+        {
+            <div class="container-fluid">
+                <table class="table table-hover table-bordered table-responsive text-center bg-white table-responsive-sm">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th class="width_table">S/N</th>
+                            <th class="width_table">Customer's Bank Name</th>
+                            <th class="width_table">Customer's Account Name</th>
+                            <th class="width_table">Customer's Account Number</th>
+                            <th class="width_table">Amount Paid</th>
+                            <th class="width_table">Method of Payment</th>
+                            <th class="width_table">Company's Account Paid to</th>
+                            <th class="width_table">Payment Proof</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var obj in Model)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@obj.CustomersBank</td>
+                                <td>@obj.customersName</td>
+                                <td>@obj.CustomersAccountNumber</td>
+                                <td>@obj.AmountPaid</td>
+                                <td>@obj.PaymentMethod</td>
+                                <td>@obj.CompanyAccountPaidTo</td>
+                                <td><img style="height:50px; border-radius:0%; " class="card-img-top square-circle" src="@obj.PaymentImageFileUrl" alt="Card image cap"></td>
+
+
+
+                                <td class="d-flex mx-2">
+                                    <button type="button" class="btn btn-success m-1">Approve</button>
+                                    <button type="button" class="btn btn-danger m-1">Decline</button>
+                                </td>
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h1 class="text-center"> No Records Found</h1>
+        }
+
+    </section>
+
+</main>

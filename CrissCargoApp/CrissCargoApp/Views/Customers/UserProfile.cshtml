@@ -1,0 +1,102 @@
+﻿@model CrissCargoApp.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "UserProfile";
+    Layout = "/Views/Shared/_UserLayout.cshtml";
+}
+  
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>User Profile</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Profile</li>
+            </ol>
+        </nav>
+    </div>
+  @if (Model !=null)
+    {
+        <section class="section dashboard m-auto">
+
+            <div class="card">
+                <div class="card-header">
+                    <center>
+                        <i class="bi bi-person-circle" style="font-size:80px;"></i>
+                        <h2 class="text-center">My Profile</h2>
+                        <span>Account Status - </span>
+                        <asp:Label :ID="Label1" runat="server" Text="Active" class="badge rounded-pill text-bg-success">Active</asp:Label>
+
+                    </center>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mt-3">
+                            <div class="text-center">
+                                <h3 class="text-center badge rounded-pill text-bg-primary">Account Details</h3>
+                            </div>
+                            <div class=" form-group mt-3">
+                                <label for="Name"><b>Name</b></label>
+                                <div class="form-control">@Model.Name</div>
+                            </div>
+                            
+                            <div class="form-group mt-3">
+                                <label for="Email"><b>Email</b></label>
+                                <div class="form-control">@Model.Email</div>
+                            </div>
+                           
+                            <div class="form-group mt-3">
+                                <label for="PhoneNumber"><b>PhoneNumber</b></label>
+                                <div class="form-control">@Model.PhoneNumber</div>
+                            </div>
+                            
+                            <div class="form-group mt-3">
+                                <label for="Address"><b>Address</b></label>
+                                <div class="form-control">@Model.Address</div>
+                            </div>
+                           
+                            <div class="form-group mt-3">
+                                <label for="DateCreated"><b>Registration Date</b></label>
+                                <div class="form-control">@Model.DateCreated</div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mt-3">
+                            <div class="text-center">
+                                <h3 class="badge rounded-pill text-bg-primary">Login Credentials</h3>
+                            </div>
+                        
+                        <div class="form-group mt-3">
+                                <label for="memberId"><b>Member ID</label>
+                            <div class="form-control">@Model.Id</div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                                <label for="Password"><b>Password</b></label>
+                            <input class="form-control" placeholder="Enter old Password">
+                        </div>
+                        <div class="form-group mt-3">
+                                <label for="NewPassword"><b>New Password</b></label>
+                            <input class="form-control" placeholder="Enter a new Password">
+                        </div>
+
+                    </div>
+                    <div class="card-footer m-3">
+                         <div class="d-flex m-3">
+                                <button type="button" class="btn btn-primary w-100 btn-block">Update Changes</button>
+                        </div>
+                    </div>
+                        
+                </div>
+                   
+                
+            </div>
+
+        </section>
+    }
+    else
+    {
+        <p>No data found</p>
+    }
+</main>

@@ -1,0 +1,287 @@
+.header-1 {
+  background: #000;
+
+}
+.header-2 {
+   background: #000033;
+   
+}
+body {
+   /* background: #ccc;
+    min-height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;*/
+}
+.section-padding {
+  padding: 100px 0;
+}
+.carousel-item {
+  min-height: 300px;
+  height: 90vh;
+}
+.carousel-caption {
+  bottom: 200px;
+  z-index: 2;
+}
+.carousel-caption h5 {
+  margin-top: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 45px;
+}
+.carousel-caption p {
+  font-size: 18px;
+  line-height: 1.9;
+  margin: auto;
+  width: 60%;
+}
+.carousel-inner::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+}
+.navbar-nav a {
+  text-transform: capitalize;
+  font-size: 17px;
+  font-weight: 500px;
+  color: #fff;
+  font-family: ;
+}
+.navbar-nav a:hover {
+  border-bottom: #e4a11b solid 2px;
+  color: #e4a11b;
+}
+.navbar-brand {
+  font-size: 25px;
+  font-family: "Courier New, Courier, monospace";
+  font-weight: 500px;
+}
+
+/* responsive css */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .carousel-caption {
+    bottom: 370px;
+  }
+  .carousel-caption p {
+    width: 100%;
+    height: 100%;
+  }
+  .header-1 {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar-nav {
+    text-align: center;
+  }
+  .carousel-caption {
+    bottom: 125px;
+  }
+  .carousel-caption h5 {
+    font-size: 17px;
+  }
+  .carousel-caption a {
+    padding: 12px 10px;
+  }
+  .carousel-caption p {
+    width: 100px;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+}
+.banner-1 {
+  padding: 50px;
+}
+.icon-1 {
+  background: ;
+  padding: 35px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 3px solid #fdd700;
+  color: #e4a11b;
+  font-size: 50px;
+}
+.icon-2 {
+  background: ;
+  padding: 35px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 3px solid #a800a0;
+  color: #a800a0;
+  font-size: 50px;
+}
+.icon-3 {
+  background: ;
+  padding: 35px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 3px solid #008a8f;
+  color: #008a8f;
+  font-size: 50px;
+}
+.icon-4 {
+  background: ;
+  padding: 35px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 3px solid #0300cf;
+  color: #0300cf;
+  font-size: 50px;
+}
+.icon-5 {
+  background: ;
+  padding: 35px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 3px solid #02b63e;
+  color: #02b63e;
+  font-size: 50px;
+}
+.space {
+  margin-top: 50px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.banner-2 {
+  background-color: #000033;
+}
+.sol:hover {
+  color: #0505cc;
+}
+.sol-1 {
+  margin-top: -5px;
+  padding: 0;
+}
+.sol-1:hover {
+  color: #e4a11b;
+  text-transform: capitalize;
+}
+.icon-A {
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 50%;
+
+  color: #fdd700;
+  font-size: 50px;
+}
+.icon-B {
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 50%;
+
+  color: #0000f0;
+  font-size: 50px;
+}
+.icon-C {
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 50%;
+
+  color: #249b00;
+  font-size: 50px;
+}
+.icon-D {
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 50%;
+
+  color: #df1749;
+  font-size: 50px;
+}
+.icon-E {
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 50%;
+
+  color: #086aeb;
+  font-size: 50px;
+}
+.icon-F {
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 50%;
+
+  color: #df1749;
+  font-size: 50px;
+}
+.icon-G {
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 50%;
+
+  color: #080833;
+  font-size: 50px;
+}
+.icon-H {
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 50%;
+
+  color: #249b00;
+  font-size: 50px;
+}
+.banner-3 {
+  background: #e0e4e9;
+}
+.cmt-1 {
+  font-size: 18px;
+  margin-top: 50px;
+}
+.cmt-2 {
+  font-size: 15px;
+}
+.info-1 {
+  border-bottom: 2px solid #3131c0;
+  font-size: 18px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.my-video {
+  object-fit: contain;
+}
+.reg {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width:100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(images/warehouse2.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #000000;
+  mix-blend-mode: darken;
+}
+.login {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(images/Aircargo.png);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.btn-reg:hover {
+  background: #e4a11b;
+  font-size: 15px;
+  font-weight: bold;
+}
+.Procurement {
+    
+    background-image: url('images/aircargo.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}

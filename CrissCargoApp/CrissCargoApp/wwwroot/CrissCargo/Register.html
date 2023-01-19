@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>CrissCargo</title>
+  </head>
+  <body>
+    <div class="fixed-top">
+      <!--Main NavBar -->
+      <nav class="navbar navbar-expand-lg header-2">
+        <div class="container-fluid">
+          <div class="navbar navbar-expand-lg bg-dark py-0"></div>
+          <a class="navbar-brand text-white" href="Index.html"
+            ><span class="text-warning">Criss</span>Cargo</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-warning active"
+                  aria-current="page"
+                  href="Index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Services</a
+                >
+                <ul class="dropdown-menu bg-dark">
+                  <li>
+                    <a class="dropdown-item text-white" href="#">
+                      Product Outsourcinng</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#">Procurement</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Goods consolidation</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-white" href="#"
+                      >Shipping and Clearing</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Guideline</a>
+              </li>
+              <li><a class="nav-link" href="#">Add Parcel</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tracking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container-fluid reg">
+      <div class="row">
+        <h2 class="text-center py-2 text-white">Customer Registeration</h2>
+
+        <!-- <div class="col-sm-6 text-white p-5">
+          <span class="text-primary">Product solution, Real Fast!</span>
+          <h1 class="mt-3">Global Freight Forwarding</h1>
+          <div>
+            <p>
+              Through our logistics solutions we help our customers simplify
+              their ‘supply chain’ and connect them to all regions of the world.
+              Our customers focus more on their core business in order to remian
+              competitive in their own markets. We manage all processes related
+              to domestic and international transportation, such as logistics
+              departments, on behalf of our customers..
+            </p>
+            <p>
+              Our door-to-door solutions cover all shipment and commodity types
+              by air, ocean or road, throughout and beyond the region. We
+              guarantee pick-up and delivery of cargo from any air or seaport
+              and border crossing, in any city on the globe.
+            </p>
+            <p>
+              Throughout the region, Project Cargo has the local know-how,
+              relationships and global resources to support clients through the
+              customs clearance process. We work with our clients to coordinate
+              shipments; large and small, with a broad range of carriers to
+              ensure unmatched time and cost efficiency.
+            </p>
+          </div>
+        </div> -->
+
+        <div class="col-10 justify-content-center p-3 m-auto">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="text-center">Register</h3>
+            </div>
+            <div class="card-body">
+              <form action="">
+                <div class="row">
+                  <div class="form-group col-6">
+                    <label for="Fname"> First Name</label>
+                    <input type="text" class="form-control" value="" />
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="Lname"> Last Name</label>
+                    <input type="text" class="form-control" value="" />
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="PhoneNumber"> Phone Number</label>
+                    <input type="tel" class="form-control" value="" />
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="Email"> Email</label>
+                    <input type="email" class="form-control" value="" />
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="Password"> Password</label>
+                    <input type="password" class="form-control" value="" />
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="ConfirmPassword">Confirm Password </label>
+                    <input type="password" class="form-control" value="" />
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="Address"> Address</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value=""
+                      placeholder="Type your Location (E.g Lagos, Kano)"
+                    />
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="ZipCode">Zip Code</label>
+                    <input type="text" class="form-control" value="" />
+                  </div>
+
+                  <div class="col-12 text-center">
+                    <button
+                      type="button"
+                      class="btn btn-reg text-white btn-block px-5 my-3"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                  <div class="container-fluid">
+                    <p>
+                      Already have an Account?
+                      <a href="Login.html" class="btn btn-inline sol-1"
+                        ><strong>LOGIN</strong>
+                        <i class="bi bi-box-arrow-in-right"></i
+                      ></a>
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid m-4">
+      Our Pricing and Rates saves you Money.
+      <a href="#" class="btn btn-inline sol"
+        ><strong>Finds Your Solutions</strong>
+        <i class="bi bi-arrow-right-circle-fill"></i
+      ></a>
+    </div>
+    <footer class="container-fluid bg-dark py-3">
+      <div class="text-center">
+        <p class="text-white">All Right Reserved &copy;CrissCargo 2022</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

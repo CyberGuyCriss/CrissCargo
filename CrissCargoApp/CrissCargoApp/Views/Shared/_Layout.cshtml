@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CrissCargoApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CrissCargoApp.styles.css" asp-append-version="true" />
+    <link href="~/crisscargo/style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <!-- Login NavBar -->
+        <nav class="container-fluid navbar navbar-expand-sm d-flex m-0 p-0 header-1">
+            <!-- <ul class="navbar-nav ">
+              <span><a href="tel:+234 905 0755 160" class="text-white nav-link">Call: +234-9050755160</a></span>
+            </ul> -->
+            <ul class="navbar-nav ms-auto d-flex justify-content-end">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a class="nav-link text-white" asp-controller="Admin" asp-action="Index">Dashdoard<i class="string text-warning "> | </i></a></li>
+                    }else{
+                        <li class="nav-item"><a class="nav-link text-white" asp-controller="Customers" asp-action="Index">Dashdoard<i class="string text-warning "> | </i></a></li>
+                    }
+
+                    <li class="nav-item"><a class="nav-link text-white" asp-controller="Account" asp-action="Logout">Logout<i class="string text-warning "> | </i></a></li>
+                }else{
+
+                    <li class="nav-item"><a class="nav-link text-white" href="/Account/Register">Register<i class="string text-warning "> | </i></a></li>
+                    <li class="nav-item"><a class="nav-link text-white" asp-controller="Account" asp-action="Login">Login<i class="string text-warning "> | </i></a></li>
+                }
+
+                <li class="nav-item"><a class="nav-link text-white" href="#">Support</a></li>
+            </ul>
+        </nav>
+
+        <!--Main NavBar -->
+        <nav class="navbar navbar-expand-lg   header-2">
+            <div class="container-fluid">
+                
+                <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index"><span class="text-warning">Criss</span>Cargo</a>
+                
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-warning active" aria-current="page" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                            <ul class="dropdown-menu bg-dark">
+                                <li><a class="dropdown-item text-white" href="#"> Product Outsourcinng</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Procurement</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Goods consolidation</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Shipping and Clearing</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link " href="#">Guideline</a></li>
+                        <li><a class="nav-link" href="#">Add Parcel</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Tracking</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid m-0">
+        <main role="main" class="pb-3">
+            <partial name="_Notification" />
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="my-0 footer bg-dark text-muted text-center ">
+        <div class="">
+            <p class="text-white">All Right Reserved &copy;CrissCargo 2022</p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

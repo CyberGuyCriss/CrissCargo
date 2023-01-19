@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CrissCargoApp.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "AllUsers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+
+    body {
+        counter-reset: Serial; /* / Set the Serial counter to 0 /*/
+    }
+
+    tr td:first-child:before {
+        counter-increment: Serial; /* / Increment the Serial counter /*/
+        content: counter(Serial); /*  / Display the counter /*/
+    }
+</style>
+
+@if (Model != null && Model.Count() > 0)
+{
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1> All Customers</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Customers</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section dashboard">
+            <table class="table table-hover table-bordered table-responsive text-center">
+                        <thead>
+                            <tr>
+                                <th class="width_table">S/N</th>
+                                <th class="width_table">Name</th>
+                                <th class="width_table">email</th>
+                                <th class="width_table">Address</th>
+                                <th class="width_table">PhoneNumber</th>
+                                <th class="width_table">DateCreated</th>
+                                <th class="width_table">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in Model)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td>@obj.Name</td>
+                                    <td>@obj.Email</td>
+                                    <td>@obj.Address</td>
+                                    <td>@obj.PhoneNumber</td>
+                                    <td>@obj.DateCreated</td>
+                                    <td class="d-flex mx-2 ">
+                                            <a asp-controller="Admin" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                            <a asp-controller="Admin" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></a>
+                                    </td>
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+        </section>
+    </main>
+}
+ 
+
+
+ 

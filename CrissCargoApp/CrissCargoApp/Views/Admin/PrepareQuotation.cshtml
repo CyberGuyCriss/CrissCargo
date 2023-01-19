@@ -1,0 +1,115 @@
+﻿@model IEnumerable<CrissCargoApp.Models.Procurement>
+
+@{
+    ViewData["Title"] = "PrepareQuotation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1> Prepare New Quotation</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Quotation</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section dashboard">
+        <div class="card">
+            <div class="card-header">
+                <h3>Customer Quotation</h3>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <h3 class="text-center text-warning mt-2">New Order</h3>
+@if(Model != null && Model.Count() > 0)
+{
+                        <table class="table table-striped table-bordered  data-table" id="tableData">
+                            <thead class="text-white bg-primary">
+                                <tr>
+                                    <th class="width_table">ProductName</th>
+                                    <th class="width_table">ProductLink</th>
+                                    <th class="width_table" id="qnty">Quantity</th>
+                                    <th class="width_table">colour</th>
+                                    <th class="width_table">Size</th>
+                                    <th class="width_table">Unit price</th>
+                                    <th class="width_table">Total Price</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var obj in Model)
+                                {
+                                    var currentTotalPriceInputId = "totalPrice" + obj.Id;
+                                    var currentUnitPriceInputId = "unitPrice" + obj.Id;
+                                    <tr>
+
+                                        <td>@obj.ProductName</td>
+                                        <td>@obj.ProductLink</td>
+                                        <td>@obj.Quantity</td>
+                                        <td>@obj.Colour</td>
+                                        <td>@obj.Size</td>
+                                        <td><input type="number" id="@currentUnitPriceInputId" class="form-control" onchange="CalculateQuotation('@obj.Quantity', '@obj.Id')" /></td>
+                                        <td><input type="number" id="@currentTotalPriceInputId" class="totalQuotationPrice form-control" readonly /></td>
+                                        <input type="text" id="quantity" class=" form-control" value="@obj.Quantity" hidden />
+                                        <input type="text" id="orderNo" class=" form-control" value="@obj.OrderNo" hidden />
+
+                                    </tr>   
+                                    
+                                }
+                           </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <h1>No Record</h1>
+                    }
+
+                    <div class="mb-5 mt-4 text-end">
+                        <button class="btn text-white btn-success" onclick="GetTotalAmountForQuotation()" id="totalAmountbtn"> Calculate Total</button>
+                        
+                        <button class="btn text-white btn-success" onclick="SendQuotation()" > Send Quotation</button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <h3 style="display:none" class="bg-primary font-weight-bold text-center text-white" id="totalAmountBar"> </h3>
+                    <h3 style="display:none" class="bg-primary font-weight-bold text-center text-white" id="totalAmountCol"> </h3>
+                   
+                </div>
+            </div>
+            
+        </div>
+    </section>
+ </main>
+ 
+ <script>
+    function SendQuotation() {
+        debugger;
+
+        var totalAmount = $("#totalAmountCol").html();
+        var orderNo = $("#orderNo").val();
+        $.ajax({
+            type: 'POST',
+            url: "/Admin/PrepareQuotation",
+            dataType: 'json',
+            data:
+            {
+                totalAmount: totalAmount, orderNo: orderNo
+            },
+            success: function (result) {
+                debugger;
+                if (!result.isError) {
+                    debugger;
+                    var url = "/Admin/PrepareQuotation";
+                    newSuccessAlert(result.msg, url);
+                }
+                else {
+                    errorAlert(result.msg);
+                }
+            }
+        });
+    }
+ </script>

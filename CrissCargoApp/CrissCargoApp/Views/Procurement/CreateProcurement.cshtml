@@ -1,0 +1,297 @@
+﻿@model CrissCargoApp.ViewModel.ProcurementViewModel
+@{
+    ViewData["Title"] = "CreateProcurement";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1> Create New Procurement</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Procurement</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section dashboard">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Add Product</h2>
+                    <p>You can Add Products by pasting the product link or Picture.</p>
+                </div>
+                <div class="card-body">
+
+                <form id="form-1">
+                    <div class="container mt-3">
+                        
+                           <div class="form-group row">
+                                   <label for="ProductName" class="col-sm-2 col-form-label"><strong>Name: </strong></label>
+                               <div class="col-sm-8"> 
+                                   <input type="text" name="ProductName" class="form-control" placeholder="Input product Name" />
+                               </div>
+                            </div> 
+
+                            <div class="form-group mt-2 row">
+                                     <label for="ProductLink" class="col-form-label col-sm-2"><strong>Link: </strong></label>
+                                <div class="col-sm-8">
+                                     <input type="url" name="ProductLink" class="form-control" placeholder="Paste product Link" />
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-2 row">
+                                     <label for="Quantity" class="col-form-label col-sm-2"><strong>Quantity: </strong></label>
+                                 <div class="col-sm-8">
+                                    <input type="number" name="Quantity" class="form-control" placeholder="Total quantity" />
+                                 </div>
+                            </div>
+                            <div class="form-group mt-2 row">
+                                     <label for="Colour" class="col-form-label col-sm-2"><strong>Colour: </strong></label>
+                               <div class="col-sm-8">
+                                    <input type="text" name="Colour" class="form-control" placeholder="Eg 2white, 4black, 5Blue..."/>
+                               </div>
+                            </div>
+                                <div class="form-group mt-2 row">
+                                        <label for="Size" class="col-form-label col-sm-2"><strong>Size: </strong></label>
+                                   <div class="col-sm-8">
+                                        <input type="number" name="Size" class="form-control" />
+                                   </div>
+                                </div>
+                               <div class="form-group mt-4 row">
+                                         <label for="MoreDescription" class="col-form-label col-sm-2"><strong>Remark: </strong></label>
+                                   <div class="col-sm-8">
+                                         <textarea class="form-control form-control-sm" rows="2" name="moredescription" placeholder="Please Add more Description if any"></textarea>
+                                   </div>
+                                </div>
+                            <div class="col-12 text-center m-3">
+                                <button type="submit" class="btn btn-success col-2 btn-save">Add</button>
+                               <button type="button" class="btn btn-danger col-2" onclick="clearField()">Clear</button>
+                            </div>
+                    </div>
+                </form>
+                </div>
+
+                  <div class="card-footer my-3">
+            <div class="container">
+                <h3 class="text-center text-warning mt-2">My Order List</h3>
+                <table class="table table-striped table-bordered  data-table" id="tableData">
+                    <thead class="text-white bg-primary">
+                        <tr>
+                            <th>ProductName</th>
+                            <th>ProductLink</th>
+                            <th>Quantity</th>
+                            <th>colour</th>
+                            <th>Size</th>
+                            <th>MoreDescription</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="mb-5 mt-4 text-end">
+                    <button class="btn text-white btn-warning " id="submissionBtn"> Submit Order</button>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+    @* button for links*@
+    <script type="text/javascript">
+
+        $("#form-1").submit(function (Event){
+            debugger;
+            Event.preventDefault();
+            var ProductName = $("input[name='ProductName']").val();
+            var ProductLink = $("input[name='ProductLink']").val();
+            var Quantity = $("input[name='Quantity']").val();
+            var Colour = $("input[name='Colour']").val();
+            var Size = $("input[name='Size']").val();
+            var MoreDescription = $("textarea[name='moredescription']").val();
+            
+
+            $(".data-table tbody").append('<tr class="tableRow">' + 
+            '<td>' + ProductName + '</td>' + 
+            '<td>' + ProductLink + '</td>' + 
+            '<td>' + Quantity + '</td>' + 
+            '<td>' + Colour + '</td>' + 
+            '<td>' + Size + '</td>' + 
+            '<td>' + MoreDescription + '</td>' +
+            '<td>' + '<button type="button" class="btn btn-danger btn-delete">X</button>' + '</td>' +
+            '</tr>');
+                $("input[name='']").val("");
+        });
+
+        //Remove button
+            $('body').on('click','.btn-delete',function(){
+            $(this).parents('tr').remove();
+        });
+
+       //Clear field
+        function clearField(){
+            $("input[name='ProductName']").val("");
+            $("input[name='ProductLink']").val("");
+            $("input[name='Quantity']").val("");
+            $("input[name='Colour']").val("");
+            $("input[name='Size']").val("");
+        $("input[name='MoreDescription']").val("");
+        }
+
+        //Adding event to the submission
+        $("#submissionBtn").click(function(){
+            debugger;
+            var tasks = $(".tableRow");
+            var details = [];
+            var data = {};
+            $.each(tasks, function (index, task) {
+                debugger;
+                data.ProductName=task.children[0].innerHTML;
+                data.ProductLink = task.children[1].innerHTML;
+                data.Quantity = task.children[2].innerHTML;
+                data.Colour = task.children[3].innerHTML;
+                data.Size = task.children[4].innerHTML;
+                data.MoreDescription = task.children[5].innerHTML;
+                details.push(data);
+            });
+           var zippedDetails = JSON.stringify(details);
+           $.ajax({
+               type: "POST",
+               url: "/Procurement/CreateProcurements",
+               data: 
+               {
+                     model: zippedDetails,
+               },
+                success: function (result) 
+                {
+                    debugger;
+                    if(!result.isError)
+                    {
+                         var url = window.location.href;
+                        newSuccessAlert(result.msg, url)
+                   }
+                   else
+                   {
+                        newErrorAlert(result.msg, url)
+                   }                   
+               },
+               error: function (ex)
+               {
+                    newErrorAlert(result.msg, url)
+                }
+           });
+        });
+
+
+        //to add picture
+                //$("form-2").submit(function (Event) {
+                //    Event.preventDefault();
+                //    var ProductPicture = $("input[name='Productpicture']").val();
+                //    var Quantity = $("input[name='Quantity']").val();
+                //    var Colour = $("input[name='Colour']").val();
+                //    var Size = $("input[name='Size']").val();
+
+                //    $(".data-table tbody").append("<tr data-name='"+ProductPicture+"' data-Quantity='"+Quantity+"' data-Size='"+Size+"' data-colour'"+Colour+"'><td>"+ProductPicture+"</td><td>"+Quantity+"</td><td>"+Colour+"</td><td>"+Size+"</td><td><button type='button' class='btn btn-danger btn-delete'>X</button></td></tr>");
+                //    $("input[name='']").val("");
+                //});
+
+                //$('body').on('click', '.btn-delete', function(){
+                //    $(this).parents('tr').remove();
+                //});
+        //posting to database
+                   //$(document).ready(function(){
+                   //    $("table").dataTable({
+                   //        "processing":true,
+                   //        "serverside":false,
+                   //        "orderMulti":true,
+                   //        "ajax":{
+                   //         "url": "Home/CreateProcurement",
+                   //         "type":"POST",
+                   //         "datatype":"json"
+                   //        },
+                   //        "coluumn":{
+                   //            { "data": "ProductLink", "autoWidth": true };
+                   //            {"data":"Qnty","autoWidth":true};
+                   //            {"data":"Size","autoWidth":true};
+                   //            {"data":"Colour","autoWidth":true};
+                   //        }
+                   //    })
+                //   //});
+                //function createAccount() {
+                //    debugger;
+
+                //    var data = {};
+                //    data.Email = $("#email").val();
+                //    data.Password = $("#password").val();
+                //    data.ConfirmPassword = $("#confirmpassword").val();
+
+                //    if (data.Email != "" && data.Password != "" && data.ConfirmPassword != "") {
+                //        var registerdetail = JSON.stringify(data);
+                //        $.ajax({
+                //            type: 'POST',
+                //            dataType: 'Json',
+                //            url: '/Account/RegisterUser',
+                //            data:
+                //            {
+                //                applicationUserViewModel: registerdetail,
+                //            },
+                //            success: function (result) {
+                //                debugger;
+                //                if (!result.isError) {
+                //                    var url = '/Account/Login';
+                //                    successAlertWithRedirect(result.msg, url);
+                //                }
+                //                else {
+                //                    errorAlert(result.msg);
+                //                }
+                //            },
+                //            error: function (ex) {
+                //                errorAlert(ex);
+                //            }
+                //        });
+                //    }
+                //}
+
+
+                //function submitTable(){
+                //    debugger;
+                //    var data ={};
+                //    data.ProductLink = $("#link").val();
+                //    data.Quantity = $("#qnty").val();
+                //    data.Colour = $("#color").val();
+                //    data.Size == $("#size").val();
+                //    if(data !=null)
+                //    {
+                //        var NewOrder = JSON.stringify(data);
+                //                $.ajax({
+                //                    type: 'POST',
+                //                    dataType: 'Json',
+                //            url: '/Procurement/CreateProcurements',
+                //                    data:
+                //                    {
+                //                        model: NewOrder,
+                //                    },
+                //                    success: function (result) {
+                //                        debugger;
+                //                        if (!result.isError) {
+                //                    var url = '/Procurement/CreateProcurement';
+                //                            successAlertWithRedirect(result.msg, url);
+                //                        }
+                //                        else {
+                //                            errorAlert(result.msg);
+                //                        }
+                //                    },
+                //                    error: function (ex) {
+                //                        errorAlert(ex);
+                //                    }
+            
+                //            }        
+                //     }
+                //});
+    </script>
